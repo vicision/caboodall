@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
-  has_many :types
-  has_many :user_items
-  has_many :users, through: :user_items
+  belongs_to :user
+  has_many :item_types
+  has_many :types, through: :item_types
 
 end
