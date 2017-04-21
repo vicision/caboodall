@@ -1,5 +1,8 @@
 
-<% @user.items.each do |i| %>
+<% current_user.items.each do |i| %>
   <%= i.title %>
+  <br></br>
+  <%= i.creator %>
   <% end %>
+  <br></br>
 <p><a href="/logout">Log Out</a></p>
