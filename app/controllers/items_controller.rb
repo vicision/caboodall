@@ -9,4 +9,12 @@ class ItemsController < ApplicationController
     end
   end
 
+  get '/new' do
+    if !logged_in?
+      redirect "/login"
+    else
+      erb :'/items/new'
+    end
+  end
+
 end
