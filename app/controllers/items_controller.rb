@@ -18,14 +18,18 @@ class ItemsController < ApplicationController
   end
 
   post '/items' do
-    if params[:title].strip != "" && params[:creator].strip != "" && params[:type].strip != ""
-      @item = current_user.items.create(title: params[:title], creator: params[:creator])
-      if Type.all.none?{|type| type.name == params[:type]}
-        Type.create(name: params[:type])
-      else
-        @item.type_id = params[:types]
+    if params[:title].strip != "" && params[:creator].strip != ""
+      @item = current_user.items.create(title: params[:title], creator: params[:title])
+      if !params[type][name].empty?
+        
 
-      end
+      # if Type.all.none?{|type| type.name == params[:type]}
+      #   Type.create(name: params[:type])
+      #   @item.type = params[:type]
+      # else
+      #   @item.type = params[:type]
+      #
+      # end
 
 
       @item.save

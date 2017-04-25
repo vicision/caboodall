@@ -7,10 +7,10 @@
   <input type="text" name="creator" id="creator"></input>
   <br></br>
   <label>Enter or choose item type:</label>
-  <input type="text" name="type" id="type" placeholder="Create new type"></input>
+  <input type="text" name="type[name]" id="type" placeholder="Create new type"></input>
   <br>
   <%Type.all.uniq.each do |type|%>
-    <input type="radio" name="type" value="<%= type.name %>" checked> <%= type.name %><br>
+    <input type="radio" name="item[type_ids][]" id="type" value="<%= type.name %>"> <%= type.name %><br>
     <%end%>
   <br></br>
   <input type="submit" name="submit" value="Create">
