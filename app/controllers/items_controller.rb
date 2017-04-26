@@ -21,8 +21,8 @@ class ItemsController < ApplicationController
     if params[:title].strip != "" && params[:creator].strip != ""
       @user = current_user
       @type = Item.types.find_or_create_by(name: params[:type_name])
-      @type.item_id = @user.id
-      @item = Item.create(title: params[:title], creator: params[:creator])
+      @type.user_id = @user.id
+      @item = Item.create(title: params[:title], creator: params[:creator], type_id: @type.id, user_id: @user.id)
 
       # if Type.all.none?{|type| type.name == params[:type]}
       #   Type.create(name: params[:type])
