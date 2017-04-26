@@ -1,5 +1,5 @@
 <h1>Add an item to your Caboodall</h1>
-<form action="/items" method="POST">
+<form action="/items" id="item-form" method="POST">
   <label>Enter item name/title:</label>
   <input type="text" name="title" id="title">
   <br></br>
@@ -7,10 +7,11 @@
   <input type="text" name="creator" id="creator"></input>
   <br></br>
   <label>Enter or choose item type:</label>
-  <input type="text" name="type[name]" id="type" placeholder="Create new type"></input>
+  <input type="text" name="type_name" id="type_name" placeholder="Create new type"></input>
   <br>
-  <%Type.all.uniq.each do |type|%>
-    <input type="radio" name="item[type_ids][]" id="type" value="<%= type.name %>"> <%= type.name %><br>
+  <select name="types" form="item-form"
+  <%current_user.types.each do |type|%>
+    <option name="type_name" value="<%= type.name %>"> <%= type.name %><br>
     <%end%>
   <br></br>
   <input type="submit" name="submit" value="Create">
