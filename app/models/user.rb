@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-  has_many :items
   has_many :types
-  
+  has_many :items
+
   has_secure_password
 
   def slug

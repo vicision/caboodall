@@ -10,9 +10,9 @@
   <input type="text" name="type_name" id="type_name" placeholder="Create new type"></input>
   <br>
   <select name="types" form="item-form"
-  <%current_user.types.each do |type|%>
+  <%Type.all.each do |type|%>
     <option name="type_name" value="<%= type.name %>"> <%= type.name %><br>
     <%end%>
   <br></br>
-  <input type="submit" name="submit" value="Create">
+  <input type="submit" name="submit" value="Add">
 </form>
