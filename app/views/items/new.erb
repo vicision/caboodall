@@ -7,13 +7,12 @@
   <input type="text" name="creator" id="creator"></input>
   <br></br>
   <label>Enter or choose item type:</label>
-  <input type="text" name="type_name" id="type_name" placeholder="Create new type"></input>
-  <select name="type_name" form="item-form">
-    <option name="type_name" value="" selected></option>
-    <%Type.all.each do |type|%>
+  <input name="type_name" type="text" list="types" />
+  <datalist id="types">
+    <% current_user.types.each do |type| %>
       <option name="type_name" value="<%= type.name %>"> <%= type.name %></option>
     <%end%>
-  </select>
+  </datalist>
   <br></br>
-  <input type="submit" name="submit" value="Add">
+  <input type="submit" name="submit" value=" Add Item ">
 </form>

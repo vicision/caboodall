@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
   end
 
   post '/items' do
-    if params[:title].strip != "" && params[:creator].strip != ""
+    if params[:title].strip != "" && params[:creator].strip != "" && params[:type_name] != ""
       @user = current_user
       @type = @user.types.find_or_create_by(name: params[:type_name])
       @type.user_id = @user.id
