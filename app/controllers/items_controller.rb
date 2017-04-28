@@ -23,19 +23,13 @@ class ItemsController < ApplicationController
       @type = @user.types.find_or_create_by(name: params[:type_name])
       @type.user_id = @user.id
       @item = Item.create(title: params[:title], creator: params[:creator], type_id: @type.id, user_id: @user.id)
-
-      # if Type.all.none?{|type| type.name == params[:type]}
-      #   Type.create(name: params[:type])
-      #   @item.type = params[:type]
-      # else
-      #   @item.type = params[:type]
-      #
-      # end
-
-
       @item.save
-      redirect to "/items"
+
+      flash[:message] = "#{@item.title} by #{@item.creator} has been added to your caboodall"
+
+      redirect to "/items/"
     else
+      flash[:message] = "Please fill out all fields."
       redirect to "/new"
     end
   end

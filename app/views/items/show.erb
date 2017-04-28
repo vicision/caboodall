@@ -1,9 +1,11 @@
 
 <% current_user.items.each do |i| %>
   <%= i.title %>
-  <br></br>
+  <br>
   <%= i.creator %>
   <br></br>
   <% end %>
-<p><a href="/new">Add an item to your Caboodall</a></p>
+  <br></br>
+  
+<p><a href="/new">Add an item to your caboodall</a></p>
 <p><a href="/logout">Log Out</a></p>
