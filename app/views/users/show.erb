@@ -1,0 +1,12 @@
+<% current_user.items.each do |i| %>
+  <a href="/items/<%= i.slug %>">   
+    <%= i.title %>
+    <br>
+    <%= i.creator %>
+  </a>
+  <br></br>
+<% end %>
+<br></br>
+
+<p><a href="/new">Add an item to your caboodall</a></p>
+<p><a href="/logout">Log Out</a></p>

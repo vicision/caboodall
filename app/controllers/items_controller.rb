@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
       redirect "/login"
     else
       @items = Item.all
-      erb :'/items/show'
+      erb :'/users/show'
     end
   end
 
@@ -27,11 +27,16 @@ class ItemsController < ApplicationController
 
       flash[:message] = "#{@item.title} by #{@item.creator} has been added to your caboodall"
 
-      redirect to "/items/"
+      redirect to "/items/#{@item.slug}"
     else
       flash[:message] = "Please fill out all fields."
       redirect to "/new"
     end
+  end
+
+  get '/items/:slug' do
+    @item = Item.find_by_slug(params[:slug])
+    erb :'/items/show'
   end
 
 

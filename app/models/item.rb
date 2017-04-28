@@ -7,7 +7,7 @@ class Item < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    Title.all.find do |t|
+    Item.all.find do |t|
       t.slug == slug
     end
   end
