@@ -1,5 +1,10 @@
 
-<h1>Sign Up for a Caboodall Account</h1>
+<h1>Sign up!</h1>
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+<br>
+
 <form action="/signup" method="POST">
   <label for="username">Enter Username</label>
   <input type="text" name="username" placeholder="Username" id="username">
