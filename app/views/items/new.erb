@@ -1,6 +1,8 @@
 <h1>Add an item to your caboodall</h1>
 <% if flash.has?(:message) %>
+  <br>
   <p style="color:#f0ad4e;"><%= flash[:message] %> </p>
+  <br>
 <% end %>
 <form action="/items" id="item-form" method="POST">
   <label>Enter item name/title:</label>

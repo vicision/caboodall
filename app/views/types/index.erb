@@ -1,0 +1,12 @@
+<% @types.each do |type| %>
+  <h3><%= type.name %>s</h3>
+  <% @items.each do |item| %>
+    <% if item.type_id == type.id %>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <a href="/items/<%= item.slug %>"><%= item.title %> by <%= item.creator %></a>
+        </li>
+      </ul>
+    <% end %>
+  <% end %>
+<% end %>
