@@ -1,0 +1,9 @@
+<ul>
+  <% @type.items.each do |item| %>
+    <% if item.type_id == type.id %>
+      <li>
+        <a href="/items/<%= item.slug %>"><%= item.title %> by <%= item.creator %></a>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

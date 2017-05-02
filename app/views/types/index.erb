@@ -1,12 +1,18 @@
 <% @types.each do |type| %>
-  <h3><%= type.name %>s</h3>
-    <ul>
-      <% @items.each do |item| %>
-        <% if item.type_id == type.id %>
-          <li>
-            <a href="/items/<%= item.slug %>"><%= item.title %> by <%= item.creator %></a>
-          </li>
-        <% end %>
-    <% end %>
-  </ul>
+  <% if type.items != [] %>
+    <h3> <a href="/types/<%= type.slug %>"></a> <%= type.name %>s</h3>
+      <ul>
+        <% @items.each do |item| %>
+          <% if item.type_id == type.id %>
+            <li>
+              <a href="/items/<%= item.slug %>"><%= item.title %> by <%= item.creator %></a>
+              <form action="<%= item.slug %>/delete" method="post">
+                <input type="hidden" id="hidden" name="_method" value="DELETE">
+                <input type="submit" name="submit" value=" delete item ">
+              </form>
+            </li>
+          <% end %>
+      <% end %>
+    </ul>
+  <% end %>
 <% end %>

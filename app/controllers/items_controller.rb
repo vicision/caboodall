@@ -37,6 +37,20 @@ class ItemsController < ApplicationController
     erb :'/items/show'
   end
 
+  delete '/items/:slug/delete' do
+    if logged_in?
+      @item = Item.find_by_slug(params[:slug])
+      if @item.user_id == current_user.id
+        @item.delete
+        flash[:message] = "Your item has been deleted successfully"
+        redirect "/items"
+      end
+    else
+      redirect "/login"
+    end
+  end
+
+
 
 
 end
