@@ -1,5 +1,12 @@
+<h3>Welcome! Here are your caboodalls:</h3>
+<% if flash.has?(:message) %>
+  <br>
+  <p style="color:#f0ad4e;"><%= flash[:message] %> </p>
+  <br>
+<% end %>
+
 <% current_user.items.each do |i| %>
-  <a href="/items/<%= i.slug %>">   
+  <a href="/items/<%= i.slug %>">
     <%= i.title %>
     <br>
     <%= i.creator %>

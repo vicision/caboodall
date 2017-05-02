@@ -1,6 +1,7 @@
 <ul>
+  <h3> <a href="/types/<%= @type.slug %>"><small><%= @type.name %>s</small></a></h3>
   <% @type.items.each do |item| %>
-    <% if item.type_id == type.id %>
+    <% if item.type_id == @type.id %>
       <li>
         <a href="/items/<%= item.slug %>"><%= item.title %> by <%= item.creator %></a>
       </li>

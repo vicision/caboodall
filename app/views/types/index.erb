@@ -1,6 +1,6 @@
 <% @types.each do |type| %>
   <% if type.items != [] %>
-    <h3> <a href="/types/<%= type.slug %>"></a> <%= type.name %>s</h3>
+    <h3> <a href="/types/<%= type.slug %>"><%= type.name %>s</a></h3>
       <ul>
         <% @items.each do |item| %>
           <% if item.type_id == type.id %>

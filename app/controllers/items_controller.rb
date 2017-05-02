@@ -5,6 +5,10 @@ class ItemsController < ApplicationController
       redirect "/login"
     else
       @items = Item.all
+      if @items == []
+        flash[:message] = "You have nothing in your caboodalls =("
+      end
+
       erb :'/users/show'
     end
   end
