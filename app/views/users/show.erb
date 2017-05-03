@@ -2,9 +2,8 @@
 <% if flash.has?(:message) %>
   <br>
   <p style="color:#f0ad4e;"><%= flash[:message] %> </p>
-  <br>
 <% end %>
-
+<br>
 <% current_user.items.each do |i| %>
   <a href="/items/<%= i.slug %>">
     <%= i.title %>
@@ -13,7 +12,6 @@
   </a>
   <br></br>
 <% end %>
-<br></br>
 
 <p><a href="/new">Add an item to your caboodall</a></p>
 <p><a href="/logout">Log Out</a></p>
