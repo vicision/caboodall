@@ -42,12 +42,17 @@ class ItemsController < ApplicationController
   end
 
   delete '/items/:slug/delete' do
+    @del_mes = "Your item has been deleted successfully"
     if logged_in?
       @item = Item.find_by_slug(params[:slug])
       if @item.user_id == current_user.id
         @item.delete
-        flash.now[:message] = "Your item has been deleted successfully"
-        erb :"/users/show"
+        flash.now[:message] = @del_mes
+        if URI(request.referrer).path == "/items/#{@item.slug}"
+          erb :"/users/show"
+        elsif URI(request.referrer).path == "/items"
+          erb :"/items/new"
+        end
       end
     else
       redirect "/login"
