@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
       @type.user_id = @user.id
       @item = Item.create(title: params[:title], creator: params[:creator], type_id: @type.id, user_id: @user.id)
       @item.save
-      flash.now[:message] = "#{@item.title} by #{@item.creator} has been added to your #{@type.name} caboodall"
+      flash.now[:message] = %Q[<a href="/items/#{@item.slug}">#{@item.title}</a>  by #{@item.creator} has been added to your <a href="/types/#{@type.slug}">#{@type.name}s</a> caboodall]
       erb :"/items/new"
     else
       flash.now[:message] = "Please fill out all fields."
