@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
     else
       @items = Item.all
       if @items == []
-        flash[:message] = "You have nothing in your caboodalls =("
+        flash.now[:message] = "You have nothing in your caboodalls =("
       end
 
       erb :'/users/show'
@@ -28,11 +28,11 @@ class ItemsController < ApplicationController
       @type.user_id = @user.id
       @item = Item.create(title: params[:title], creator: params[:creator], type_id: @type.id, user_id: @user.id)
       @item.save
-      flash[:message] = "#{@item.title} by #{@item.creator} has been added to your #{@type.name} caboodall"
-      redirect to "/new"
+      flash.now[:message] = "#{@item.title} by #{@item.creator} has been added to your #{@type.name} caboodall"
+      erb :"/items/new"
     else
-      flash[:message] = "Please fill out all fields."
-      redirect to "/new"
+      flash.now[:message] = "Please fill out all fields."
+      erb :"/items/new"
     end
   end
 
