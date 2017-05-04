@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
       @type.user_id = @user.id
       @item = Item.create(title: params[:title], creator: params[:creator], type_id: @type.id, user_id: @user.id)
       @item.save
-      flash.now[:message] = %Q[<a href="/items/#{@item.slug}">#{@item.title}</a>  by #{@item.creator} has been added to your <a href="/types/#{@type.slug}">#{@type.name}s</a> caboodall]
+      flash.now[:message] = %Q[<a href="/items/#{@item.slug}">#{@item.title}</a>  by #{@item.creator} has been added to your <a href="/types/#{@type.slug}">#{@type.name}s</a> caboodall.]
       erb :"/items/new"
     else
       flash.now[:message] = "Please fill out all fields."
@@ -46,8 +46,8 @@ class ItemsController < ApplicationController
       @item = Item.find_by_slug(params[:slug])
       if @item.user_id == current_user.id
         @item.delete
-        flash[:message] = "Your item has been deleted successfully"
-        redirect "/items"
+        flash.now[:message] = "Your item has been deleted successfully"
+        erb :"/users/show"
       end
     else
       redirect "/login"
