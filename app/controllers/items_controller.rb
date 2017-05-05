@@ -46,11 +46,13 @@ class ItemsController < ApplicationController
       @item = Item.find_by_slug(params[:slug])
       if @item.user_id == current_user.id
         @item.delete
-        flash.now[:message] = @del_mes
-        if URI(request.referrer).path == "/items/#{@item.slug}"
-          erb :"/users/show"
-        elsif URI(request.referrer).path == "/items"
-          erb :"/items/new"
+        # if URI(request.referrer).path == "/items/#{@item.slug}"
+        #   || URI(request.referrer).path == "/types"
+        #   erb :"/users/show"
+        if URI(request.referrer).path == "/items"
+          redirect :"/new"
+        else
+          redirect :"/users/show"
         end
       end
     else
