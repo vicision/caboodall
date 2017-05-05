@@ -8,7 +8,6 @@ class ItemsController < ApplicationController
       if @items == []
         flash.now[:message] = "You have nothing in your caboodalls =("
       end
-
       erb :'/users/show'
     end
   end

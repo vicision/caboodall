@@ -3,7 +3,7 @@
   * {
     list-style-position: inside;
     margin: 0;
-    padding: 0;
+    padding: 10;
   }
 
   html, body {
@@ -11,12 +11,31 @@
     width: 100%;
   }
 
-  /* --- Welcome Page Styles --- */
+  /* --- Layout Styles --- */
+
+  a {
+
+  }
+
   body {
-    background-color: lightblue;
+    /*background-color: orange;*/
+    background-image: url('../images/pexels-photo-110252.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
+  }
+
+/*NEED TO FIX MENU, THIS DOESN'T WORK AS I'D LIKE*/
+  nav {
+    display: inline-block;
+    line-height: 40px;
+    padding: 0 20px;
+    position: relative;
+    width: 200px;
+    height: 100px;
+    margin: 1em;
   }
 
   .wrapper {

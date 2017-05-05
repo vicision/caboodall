@@ -1,9 +1,13 @@
 class TypesController < ApplicationController
 
   get '/types' do
-    @types = Type.all
-    @items = Item.all
-    erb :'/types/index'
+    if !logged_in?
+      redirect "/login"
+    else
+      @types = Type.all
+      @items = Item.all
+      erb :'/types/index'
+    end
   end
 
   get '/types/:slug' do

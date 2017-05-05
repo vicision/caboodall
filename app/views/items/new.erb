@@ -3,28 +3,28 @@
   <br>
   <p style="color:#f0ad4e;"><%= flash[:message] %> </p>
   <% unless flash[:message] == @del_mes %>
-  <form action="/items/<%= @item.slug %>/delete" method="post">
-    <input type="hidden" id="hidden" name="_method" value="DELETE">
-    <input type="submit" name="submit" value=" Undo ">
-  </form>
-<% end %>
+    <form action="/items/<%= @item.slug %>/delete" method="post">
+      <input type="hidden" id="hidden" name="_method" value="DELETE">
+      <input type="submit" name="submit" value=" Undo ">
+    </form>
+  <% end %>
 <% end %>
 
 <br>
 <form action="/items" id="item-form" method="POST">
   <label>Enter item name/title:</label>
-  <input type="text" name="title" id="title">
+    <input type="text" name="title" id="title">
   <br></br>
   <label>Enter creator name:</label>
-  <input type="text" name="creator" id="creator"></input>
+    <input type="text" name="creator" id="creator"></input>
   <br></br>
   <label>Enter or choose item type:</label>
-  <input name="type_name" type="text" list="types" />
-  <datalist id="types">
-    <% current_user.types.each do |type| %>
-      <option name="type_name" value="<%= type.name %>"> <%= type.name %></option>
-    <%end%>
-  </datalist>
+    <input name="type_name" type="text" list="types" />
+    <datalist id="types">
+      <% current_user.types.each do |type| %>
+        <option name="type_name" value="<%= type.name %>"> <%= type.name %></option>
+      <%end%>
+    </datalist>
   <br></br>
   <input type="submit" name="submit" value=" Add Item ">
 </form>
