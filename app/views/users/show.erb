@@ -1,11 +1,11 @@
 <div class="content">
 
 <h3>Welcome! Here are your caboodalls:</h3>
+<br>
 <% if flash.has?(:message) %>
   <br>
   <p style="color:red;"><%= flash[:message] %> </p>
 <% end %>
-<br>
 <% current_user.items.each do |i| %>
   <a class="menu" href="/items/<%= i.slug %>">
     <%= i.title %>
