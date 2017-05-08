@@ -1,5 +1,7 @@
 class TypesController < ApplicationController
 
+  helpers Sinatra::RedirectWithFlash
+
   get '/types' do
     if !logged_in?
       redirect "/login"

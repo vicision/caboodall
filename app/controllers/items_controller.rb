@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  helpers Sinatra::RedirectWithFlash
+
   get '/items' do
     if !logged_in?
       redirect "/login"
@@ -31,6 +33,7 @@ class ItemsController < ApplicationController
       erb :"/items/new"
     else
       flash.now[:message] = "Please fill out all fields."
+      @fields_mes = flash[:message]
       erb :"/items/new"
     end
   end
@@ -41,17 +44,22 @@ class ItemsController < ApplicationController
   end
 
   delete '/items/:slug/delete' do
-    @del_mes = "Your item has been deleted successfully"
     if logged_in?
       @item = Item.find_by_slug(params[:slug])
-      if @item.user_id == current_user.id
+      if !!@item && @item.user_id == current_user.id 
         @item.delete
         # if URI(request.referrer).path == "/items/#{@item.slug}"
         #   || URI(request.referrer).path == "/types"
         #   erb :"/users/show"
-        if URI(request.referrer).path == "/items"
-          redirect :"/new"
+        # flash[:message] =
+        # @del_mes = flash[:message]
+        if URI(request.referer).path == "/items"
+          flash[:message] = "Your item has been deleted successfully"
+          @del_mes = flash[:message]
+          erb :"/items/new"
         else
+          flash[:message] = "Your item has been deleted successfully"
+          @del_mes = flash[:message]
           redirect :"/users/show"
         end
       end
@@ -59,8 +67,5 @@ class ItemsController < ApplicationController
       redirect "/login"
     end
   end
-
-
-
 
 end
