@@ -46,21 +46,23 @@ class ItemsController < ApplicationController
   delete '/items/:slug/delete' do
     if logged_in?
       @item = Item.find_by_slug(params[:slug])
-      if !!@item && @item.user_id == current_user.id 
+      if !!@item && @item.user_id == current_user.id
         @item.delete
         # if URI(request.referrer).path == "/items/#{@item.slug}"
         #   || URI(request.referrer).path == "/types"
         #   erb :"/users/show"
         # flash[:message] =
         # @del_mes = flash[:message]
+        flash[:message] = "Your item has been deleted successfully"
+        @del_mes = flash[:message]
         if URI(request.referer).path == "/items"
-          flash[:message] = "Your item has been deleted successfully"
-          @del_mes = flash[:message]
           erb :"/items/new"
+        elsif URI(request.referer).path == "/types"
+          # flash[:message] = "Your item has been deleted successfully"
+          # @del_mes = flash[:message]
+          erb :"/types/show"
         else
-          flash[:message] = "Your item has been deleted successfully"
-          @del_mes = flash[:message]
-          redirect :"/users/show"
+          erb :"/users/show"
         end
       end
     else

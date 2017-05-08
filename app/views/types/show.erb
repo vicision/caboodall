@@ -1,14 +1,15 @@
 <div class="content">
 
-<ul>
-  <h3> <a href="/types/<%= @type.slug %>"><small><%= @type.name %>s</small></a></h3>
-  <% @type.items.each do |item| %>
-    <% if item.type_id == @type.id %>
-      <li>
-        <a href="/items/<%= item.slug %>"><%= item.title %> by <%= item.creator %></a>
-      </li>
+  <ul>
+    <a class="menu" href="/types/<%= @type.slug %>"><%= @type.name %>s</a>
+    <br></br>
+    <% @type.items.each do |item| %>
+      <% if item.type_id == @type.id %>
+        <li>
+          <a href="/items/<%= item.slug %>"><%= item.title %> by <%= item.creator %></a>
+        </li>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
-
+  </ul>
+  <br></br>
 </div>

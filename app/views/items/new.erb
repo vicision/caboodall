@@ -3,7 +3,7 @@
   <h3>Add an item to your caboodall</h3>
   <% if flash.has?(:message) %>
     <br>
-    <p style="color:blue;"><%= flash[:message] %> </p>
+    <p style="color:red;"><%= flash[:message] %> </p>
     <% if flash[:message] != @del_mes && flash[:message] != @fields_mes %>
       <form action="/items/<%= @item.slug %>/delete" method="post">
         <input type="hidden" id="hidden" name="_method" value="DELETE">
@@ -30,5 +30,5 @@
     <br></br>
     <input type="submit" name="submit" value=" Add Item ">
   </form>
-
+  <br></br>
 </div>
