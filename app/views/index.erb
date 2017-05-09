@@ -1,3 +1,11 @@
-<h2>Welcome to caboodall!</h2>
+<h3>Welcome to caboodall!</h3
+<br>
+<% if flash.has?(:message) %>
+  <br>
+  <p style="color:red;"><%= flash[:message] %> </p>
+<% end %>
+<br>
 <h3><a href="/login">Log In</a></h3>
+<br>
 <h3><a href="/signup">Sign Up</a></h3>
+<br>

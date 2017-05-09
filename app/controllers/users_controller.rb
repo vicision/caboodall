@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  helpers Sinatra::RedirectWithFlash
+
   get '/signup' do
     if logged_in?
       redirect "/items"

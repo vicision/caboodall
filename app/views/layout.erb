@@ -15,12 +15,16 @@
 </head>
 <body>
   <div class="wrapper">
-    <a href="/">home </a><a href="/types"> types </a><a href="/logout"> logout </a>
-    <br></br>
+    <nav>
+      <a class="menu" href="/">my caboodalls</a>
+      <a class="menu" href="/new">add item</a>
+      <a class="menu" href="/logout">logout</a>
+    </nav>
 
       <%= yield %>
 
     <footer class="branding">
+      <br>
       <small>&copy; 2017 <strong>caboodall</strong></small>
     </footer>
   </div>

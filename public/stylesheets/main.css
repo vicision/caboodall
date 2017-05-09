@@ -1,7 +1,7 @@
 @media screen {
   /* --- Reset Styles --- */
   * {
-    list-style-position: inside;
+    list-style: none;
     margin: 0;
     padding: 0;
   }
@@ -11,12 +11,62 @@
     width: 100%;
   }
 
-  /* --- Welcome Page Styles --- */
+  /* --- Layout Styles --- */
+
   body {
-    background-color: lightblue;
+    /*background-color: orange;*/
+    background-image: url('../images/pexels-photo-110252.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
     color: #333;
-    font-family: Sans-Serif;
+    font-family: Futura, Arial, Sans-Serif;
     line-height: 18px;
+  }
+
+  nav {
+    background-color: #000000;
+    width: 100%;
+    height: 100%;
+    margin: 0px 0px 20px 0px;
+
+  }
+
+  a:link, a:visited {
+    color: #333;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: red;
+  }
+
+  a:hover, a:active {
+      background-color: red;
+      color: white;
+  }
+
+
+  nav  {
+    display: inline-block;
+  }
+
+  a.menu:link, a.menu:visited {
+      color: white;
+      background-color: black;
+      padding: 14px 25px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      border: none;
+  }
+
+  a.menu:hover, a.menu:active {
+      background-color: red;
+      color: white;
+  }
+
+  li {
+    display: inline-block;
   }
 
   .wrapper {
@@ -24,7 +74,7 @@
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
-    margin: 16px auto;
+    margin: 30px auto;
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
@@ -56,8 +106,10 @@
   }
 
   .content {
+    color: #333;
+    padding: 10px;
     float: left;
-    width: 60%; /* 480px / 800px */
+    width: 100%; /* 480px / 800px */
   }
 
   .sidebar {

@@ -1,11 +1,13 @@
+<div class="content">
+
 <h3>Welcome! Here are your caboodalls:</h3>
+<br>
 <% if flash.has?(:message) %>
   <br>
-  <p style="color:#f0ad4e;"><%= flash[:message] %> </p>
+  <p style="color:red;"><%= flash[:message] %> </p>
 <% end %>
-<br>
 <% current_user.items.each do |i| %>
-  <a href="/items/<%= i.slug %>">
+  <a class="menu" href="/items/<%= i.slug %>">
     <%= i.title %>
     <br>
     <%= i.creator %>
@@ -14,4 +16,5 @@
 <% end %>
 
 <p><a href="/new">Add an item to your caboodall</a></p>
-<p><a href="/logout">Log Out</a></p>
+
+</div>
