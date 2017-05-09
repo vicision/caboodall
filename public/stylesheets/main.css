@@ -15,7 +15,7 @@
 
   body {
     /*background-color: orange;*/
-    background-image: url('../images/pexels-photo-110252.jpeg');
+    background-image: url('../images/books_01.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     color: #333;
@@ -23,12 +23,32 @@
     line-height: 18px;
   }
 
+  .logo {
+    background-size: cover;
+    color: black;
+    height: 100%;
+  }
+
+
+  a.logo:link, a.logo:visited {
+    color: #333;
+    text-decoration: none;
+    border-style: none;
+    padding: none;
+  }
+
+  a.logo:hover, a.logo:active {
+      border-style: none;
+
+  }
+
+
   nav {
+    display: inline-block;
     background-color: #000000;
     width: 100%;
     height: 100%;
     margin: 0px 0px 20px 0px;
-
   }
 
   a:link, a:visited {
@@ -43,11 +63,6 @@
   a:hover, a:active {
       background-color: red;
       color: white;
-  }
-
-
-  nav  {
-    display: inline-block;
   }
 
   a.menu:link, a.menu:visited {
