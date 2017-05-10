@@ -19,9 +19,14 @@
       <a class="logo" href="/"><img class="logo" src="../images/caboodall_logo.svg" alt="caboodall"></a>
     </div>
     <nav>
-      <a class="menu" href="/">my caboodalls</a>
-      <a class="menu" href="/new">add item</a>
-      <a class="menu" href="/logout">logout</a>
+      <% if logged_in? %>
+        <a class="menu" href="/">my caboodalls</a>
+        <a class="menu" href="/new">add item</a>
+        <a class="menu" id="logout" href="/logout">logout</a>
+      <% else %>
+      <a class="menu" href="/signup">sign up</a>
+      <a class="menu" href="/login">log in</a>
+      <% end %>
     </nav>
 
       <%= yield %>

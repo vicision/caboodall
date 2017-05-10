@@ -14,7 +14,6 @@
   /* --- Layout Styles --- */
 
   body {
-    /*background-color: orange;*/
     background-image: url('../images/books_01.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,6 +23,7 @@
   }
 
   .logo {
+    display: block;
     height: 100%;
     width: 100%;
     align-content: left;
@@ -42,7 +42,6 @@
       border-style: none;
       background-color: black;
   }
-
 
   nav {
     display: inline-block;
