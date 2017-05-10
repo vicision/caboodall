@@ -1,10 +1,10 @@
 <div class="content">
-
+<br>
 <%= @item.title %> by <%= @item.creator %>
 <br></br>
 <form action="<%= @item.slug %>/delete" method="post">
   <input type="hidden" id="hidden" name="_method" value="DELETE">
   <input type="submit" name="submit" value=" delete item ">
 </form>
-<br></br>
+<br>
 </div>

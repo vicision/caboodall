@@ -82,7 +82,21 @@
 
   li {
     display: inline-block;
+    margin: 0px 5px 15px 0px;
   }
+
+  li a {
+    display: block;
+  }
+
+  li form {
+    margin: 0px 5px 0px 0px;
+  }
+
+  #item-form {
+    text-align: right;
+    width: 30%;
+   }
 
   .wrapper {
     background: #fff;

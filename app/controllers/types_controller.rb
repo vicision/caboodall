@@ -6,14 +6,14 @@ class TypesController < ApplicationController
     if !logged_in?
       redirect "/login"
     else
-      @types = Type.all
-      @items = Item.all
+      @types = current_user.types.all
+      @items = current_user.items.all
       erb :'/types/index'
     end
   end
 
   get '/types/:slug' do
-    @type = Type.find_by_slug(params[:slug])
+    @type = current_user.types.find_by_slug(params[:slug])
     erb :'/types/show'
   end
 
