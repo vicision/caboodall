@@ -24,9 +24,9 @@
   }
 
   .logo {
-    background-size: cover;
-    color: black;
     height: 100%;
+    width: 100%;
+    align-content: stretch;
   }
 
 
@@ -34,12 +34,13 @@
     color: #333;
     text-decoration: none;
     border-style: none;
-    padding: none;
+    padding: 0px 0px;
+    background-color: black;
   }
 
   a.logo:hover, a.logo:active {
       border-style: none;
-
+      background-color: black;
   }
 
 
@@ -144,7 +145,7 @@
   }
 
   footer.branding {
-    border-top: 2px solid #ccc;
+    border-top: 2px solid yellow;
     margin-top: 20px;
     padding-top: 20px;
   }
