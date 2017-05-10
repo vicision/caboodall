@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
     if logged_in?
       redirect "/types"
     else
-      flash[:message] = "Please log in or sign up"
+      flash.now[:message] = "Please log in or sign up"
       erb :index
     end
   end
