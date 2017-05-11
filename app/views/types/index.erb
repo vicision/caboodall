@@ -1,5 +1,14 @@
 <div class="content">
 
+  <% if flash.has?(:message) %>
+    <br>
+    <p style="color:red;"><%= flash[:message] %> </p>
+    <br>
+    <a href="/new">Add an item</a>
+    <br></br>
+    <br>
+  <% end %>
+
   <% @types.each do |type| %>
     <% if type.items != [] %>
       <a class="menu" href="/types/<%= type.slug %>"><%= type.name %>s</a>
@@ -21,9 +30,8 @@
             <% end %>
         <% end %>
         <% if type.items.length > 4 %>
-        <a class="menu" href="/types/<%= type.slug %>"> See <%= type.items.length - 4 %> more item(s)</a>
+          <a class="menu" href="/types/<%= type.slug %>"> + <%= type.items.length - 4 %> more <%= type.slug %>(s)</a>
         <% end %>
-
       </ul>
       <br></br>
     <% end %>

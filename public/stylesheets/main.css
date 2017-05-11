@@ -22,6 +22,10 @@
     line-height: 18px;
   }
 
+  p {
+    line-height: 40px;
+  }
+
   .logo {
     display: block;
     height: 100%;
@@ -35,6 +39,7 @@
     text-decoration: none;
     border-style: none;
     padding: 0px 0px;
+    margin: 0px;
     background-color: black;
   }
 
@@ -54,6 +59,7 @@
   a:link, a:visited {
     color: #333;
     text-decoration: none;
+    margin: 0px 0px 5px 0px;
     padding: 5px 10px;
     border-style: solid;
     border-width: 3px;
@@ -69,6 +75,7 @@
       color: white;
       background-color: black;
       padding: 14px 25px;
+      margin: 0px;
       text-align: center;
       text-decoration: none;
       display: inline-block;
@@ -93,9 +100,14 @@
     margin: 0px 5px 0px 0px;
   }
 
-  #item-form {
+  .item-form {
     text-align: right;
-    width: 30%;
+    width: 15em;
+   }
+
+   #form-header {
+     text-align: right;
+     width: 240px;
    }
 
   .wrapper {

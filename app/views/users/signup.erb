@@ -1,21 +1,20 @@
 <div class="content">
-  <h3>Sign up for caboodall</h3>
   <% if flash.has?(:message) %>
-    <%= flash[:message] %>
+    <p style="color:red;"><%= flash[:message] %></p>
   <% end %>
-  <br>
-
-  <form action="/signup" method="POST">
-    <label for="username">Enter Username</label>
+  <form action="/signup" class="item-form" method="POST">
+    <h3 id="form-header">Create an account</h3>
+    <br>
+    <label for="username">Username</label>
     <input type="text" name="username" placeholder="Username" id="username">
     <br></br>
-    <label for="email">Enter Email Address</label>
+    <label for="email">Email</label>
     <input type="text" name="email" placeholder="Email Address" id="email">
     <br></br>
-    <label for="password">Enter Password</label>
+    <label for="password">Password</label>
     <input type="password" name="password" placeholder="Password" id="password">
     <br></br>
     <input type="submit" name="submit" value="Sign Up">
   </form>
-  <br></br>
+  <br>
 </div>
