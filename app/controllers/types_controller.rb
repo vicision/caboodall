@@ -9,7 +9,8 @@ class TypesController < ApplicationController
       @types = current_user.types.all
       @items = current_user.items.all
       if @items == []
-        flash.now[:message] = "You have nothing in your caboodalls."
+        flash.now[:message] = "You have nothing in your caboodalls"
+        @empty_mes = flash[:message]
       end
       erb :'/types/index'
     end

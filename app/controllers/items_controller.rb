@@ -60,7 +60,7 @@ class ItemsController < ApplicationController
         elsif URI(request.referer).path == "/types"
           # flash[:message] = "Your item has been deleted successfully"
           # @del_mes = flash[:message]
-          erb :"/types/show"
+          redirect :"/types/show"
         else
           erb :"/users/show"
         end

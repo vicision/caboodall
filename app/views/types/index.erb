@@ -4,9 +4,10 @@
     <br>
     <p style="color:red;"><%= flash[:message] %> </p>
     <br>
-    <a href="/new">Add an item</a>
+    <% if flash[:message] == @empty_mes %>
+      <a href="/new">Add an item</a>
+    <% end %>
     <br></br>
-    <br>
   <% end %>
 
   <% @types.each do |type| %>
