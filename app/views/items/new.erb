@@ -1,22 +1,12 @@
 <div class="content">
 
-  <% if flash.has?(:message) %>
-    <p style="color:red;"><%= flash[:message] %></p>
-    <% if flash[:message] != @del_mes && flash[:message] != @fields_mes %>
-      <form action="/items/<%= @item.slug %>/delete" method="post">
-        <input type="hidden" id="hidden" name="_method" value="DELETE">
-        <input type="submit" name="submit" value=" Undo ">
-      </form>
-    <% end %>
-  <% end %>
-
     <form action="/items" class="item-form" method="POST">
       <h3 id="form-header">Add an item</h3>
       <br>
       <label>Name/title</label>
         <input type="text" name="title" id="title">
       <br></br>
-      <label>Creator name</label>
+      <label>Creator</label>
         <input type="text" name="creator" id="creator"></input>
       <br></br>
       <label>Item type</label>
@@ -29,6 +19,20 @@
       <br></br>
       <input type="submit" name="submit" value=" Add Item ">
     </form>
-
+    <ul>
+        <li>
+          <% if flash.has?(:message) %>
+            <p style="color:red;"><%= flash[:message] %></p>
+          <% end %>
+        </li>
+        <li>
+          <% if flash[:message] != @del_mes && flash[:message] != @fields_mes %>
+            <form action="/items/<%= @item.slug %>/delete" method="post">
+              <input type="hidden" id="hidden" name="_method" value="DELETE">
+              <input type="submit" name="submit" value=" Undo ">
+            </form>
+          <% end %>
+        </li>
+    </ul>
   <br></br>
 </div>

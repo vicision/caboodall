@@ -53,7 +53,7 @@ class ItemsController < ApplicationController
         #   erb :"/users/show"
         # flash[:message] =
         # @del_mes = flash[:message]
-        flash[:message] = "Your item has been deleted successfully"
+        flash.now[:message] = "Your item has been deleted successfully"
         @del_mes = flash[:message]
         if URI(request.referer).path == "/items"
           erb :"/items/new"
