@@ -1,38 +1,27 @@
 <div class="content">
 
-    <form action="/items" class="item-form" method="POST">
-      <h3 id="form-header">Add an item</h3>
-      <br>
-      <label>Name/title</label>
-        <input type="text" name="title" id="title">
-      <br></br>
-      <label>Creator</label>
-        <input type="text" name="creator" id="creator"></input>
-      <br></br>
-      <label>Item type</label>
-        <input name="type_name" type="text" list="types" />
-        <datalist id="types">
-          <% current_user.types.each do |type| %>
-            <option name="type_name" value="<%= type.name %>"> <%= type.name %></option>
-          <%end%>
-        </datalist>
-      <br></br>
-      <input type="submit" name="submit" value=" Add Item ">
-    </form>
-    <ul>
-        <li>
-          <% if flash.has?(:message) %>
-            <p style="color:red;"><%= flash[:message] %></p>
-          <% end %>
-        </li>
-        <li>
-          <% if flash[:message] != @del_mes && flash[:message] != @fields_mes %>
-            <form action="/items/<%= @item.slug %>/delete" method="post">
-              <input type="hidden" id="hidden" name="_method" value="DELETE">
-              <input type="submit" name="submit" value=" Undo ">
-            </form>
-          <% end %>
-        </li>
-    </ul>
+  <% if flash.has?(:message) %>
+    <p style="color:red;"><%= flash[:message] %></p>
+  <% end %>
+
+  <form action="/items" class="item-form" method="POST">
+    <h3 id="form-header">Add an item</h3>
+    <br>
+    <label>Name/title</label>
+      <input type="text" name="title" id="title">
+    <br></br>
+    <label>Creator</label>
+      <input type="text" name="creator" id="creator"></input>
+    <br></br>
+    <label>Item type</label>
+      <input name="type_name" type="text" list="types" />
+      <datalist id="types">
+        <% current_user.types.each do |type| %>
+          <option name="type_name" value="<%= type.name %>"> <%= type.name %></option>
+        <%end%>
+      </datalist>
+    <br></br>
+    <input type="submit" name="submit" value=" Add Item ">
+  </form>
   <br></br>
 </div>

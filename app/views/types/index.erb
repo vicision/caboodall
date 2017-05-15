@@ -4,10 +4,6 @@
     <br>
     <p style="color:red;"><%= flash[:message] %> </p>
     <br>
-    <% if flash[:message] == @empty_mes %>
-      <a href="/new">Add an item</a>
-    <% end %>
-    <br></br>
   <% end %>
 
   <% @types.each do |type| %>
@@ -22,7 +18,7 @@
                   <a href="/items/<%= item.slug %>"><%= item.title %> by <%= item.creator %></a>
                 </li>
                 <li>
-                  <form action="items/<%= item.slug %>/delete" method="post">
+                  <form action="/items/<%= item.slug %>/delete" method="post">
                     <input type="hidden" id="hidden" name="_method" value="DELETE">
                     <input type="submit" name="submit" value=" delete ">
                   </form>
