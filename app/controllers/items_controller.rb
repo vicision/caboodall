@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
       flash.now[:message] = %Q[<a href="/items/#{@item.slug}">#{@item.title}</a>  by #{@item.creator} has been added to your <a href="/types/#{@type.slug}">#{@type.name}s</a> caboodall]
       erb :"/items/new"
     else
-      flash.now[:message] = "Please fill out all fields."
+      flash.now[:message] = "Please fill out all fields"
       erb :"/items/new"
     end
   end
