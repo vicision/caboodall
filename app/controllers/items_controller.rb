@@ -6,11 +6,11 @@ class ItemsController < ApplicationController
     if !logged_in?
       redirect "/login"
     else
-      @items = Item.all
+      @items = current_user.items.all
       if @items == []
-        flash.now[:message] = "You have nothing in your caboodalls =("
+        flash.now[:message] = %Q[You have nothing in your caboodalls. <a href="/new">Add an item now</a>]
       end
-      erb :'/users/show'
+      redirect :'types'
     end
   end
 
@@ -39,28 +39,21 @@ class ItemsController < ApplicationController
   end
 
   get '/items/:slug' do
-    @item = Item.find_by_slug(params[:slug])
+    @item = current_user.items.find_by_slug(params[:slug])
     erb :'/items/show'
   end
 
   delete '/items/:slug/delete' do
     if logged_in?
-      @item = Item.find_by_slug(params[:slug])
+      @item = current_user.items.find_by_slug(params[:slug])
       if !!@item && @item.user_id == current_user.id
         @item.delete
-        # if URI(request.referrer).path == "/items/#{@item.slug}"
-        #   || URI(request.referrer).path == "/types"
-        #   erb :"/users/show"
-        # flash[:message] =
-        # @del_mes = flash[:message]
         flash.now[:message] = "Your item has been deleted successfully"
-        @del_mes = flash[:message]
+        @del_mes = flash.now[:message]
         if URI(request.referer).path == "/items"
           erb :"/items/new"
         elsif URI(request.referer).path == "/types"
-          # flash[:message] = "Your item has been deleted successfully"
-          # @del_mes = flash[:message]
-          redirect :"/types/show"
+          redirect :"/types"
         else
           erb :"/users/show"
         end
