@@ -9,6 +9,7 @@
   html, body {
     height: 100%;
     width: 100%;
+    font-weight: bold;
   }
 
   /* --- Layout Styles --- */
@@ -18,7 +19,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     color: #333;
-    font-family: Futura Bold, Arial Bold, Sans-Serif;
+    font-family: Futura, Arial, Sans-Serif;
     line-height: 18px;
   }
 
@@ -102,12 +103,14 @@
 
   .item-form {
     text-align: right;
-    width: 15em;
+    width: 16em;
    }
 
    #form-header {
-     text-align: right;
-     width: 240px;
+     text-align: center;
+     color: yellow;
+     background-color: black;
+     margin: 0px 0px 5px 0px;
    }
 
   .wrapper {

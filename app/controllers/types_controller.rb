@@ -9,7 +9,7 @@ class TypesController < ApplicationController
       @types = current_user.types.all
       @items = current_user.items.all
       if @items == []
-        flash.now[:message] = %Q[You have nothing in your caboodalls.<br><a href="/new">Add an item</a>]
+        flash.now[:message] = %Q[You have nothing in your caboodalls.<br></br><a href="/new">Add an item</a>]
       end
       erb :'/types/index'
     end

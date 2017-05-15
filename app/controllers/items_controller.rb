@@ -44,11 +44,7 @@ class ItemsController < ApplicationController
       if !!@item && @item.user_id == current_user.id
         @item.delete
         flash[:message] = "Your item has been deleted successfully"
-        if URI(request.referer).path == "/types"
-          redirect :"/types"
-        elsif URI(request.referer).path == "/types/:slug"
-          redirect :"/types/:slug"
-        end
+        redirect :"/types"
       end
     else
       redirect "/login"
