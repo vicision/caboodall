@@ -2,12 +2,10 @@ require './config/environment'
 require 'rack-flash'
 require 'sinatra/redirect_with_flash'
 
-
 class ApplicationController < Sinatra::Base
 
   use Rack::Flash
   helpers Sinatra::RedirectWithFlash
-
 
   configure do
     set :public_folder, 'public'

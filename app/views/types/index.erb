@@ -10,27 +10,28 @@
     <% if type.items != [] %>
       <a class="menu" href="/types/<%= type.slug %>"><%= type.name %>s</a>
       <br></br>
-        <ul>
-          <% type.items.each_with_index do |item, index| %>
-            <% if index <= 3 %>
-              <% if item.type_id == type.id %>
-                <li>
-                  <a href="/items/<%= item.slug %>"><%= item.title %> by <%= item.creator %></a>
-                </li>
-                <li>
-                  <form action="/items/<%= item.slug %>/delete" method="post">
-                    <input type="hidden" id="hidden" name="_method" value="DELETE">
-                    <input type="submit" name="submit" value=" delete ">
-                  </form>
-                </li>
-              <% end %>
-            <% end %>
+      <ul>
+      <% type.items.each_with_index do |item, index| %>
+        <% if index <= 3 %>
+          <% if item.type_id == type.id %>
+            <li>
+              <a href="/items/<%= item.slug %>"><%= item.title %> by <%= item.creator %></a>
+            </li>
+            <li>
+              <form action="/items/<%= item.slug %>/delete" method="post">
+                <input type="hidden" id="hidden" name="_method" value="DELETE">
+                <input type="submit" name="submit" value=" delete ">
+              </form>
+            </li>
+          <% end %>
         <% end %>
-        <% if type.items.length > 4 %>
-          <a class="menu" href="/types/<%= type.slug %>"> + <%= type.items.length - 4 %> more <%= type.slug %>(s)</a>
-        <% end %>
+      <% end %>
+      <% if type.items.length > 4 %>
+        <a class="menu" href="/types/<%= type.slug %>"> + <%= type.items.length - 4 %> more <%= type.slug %>(s)</a>
+      <% end %>
       </ul>
       <br></br>
     <% end %>
   <% end %>
+
 </div>
