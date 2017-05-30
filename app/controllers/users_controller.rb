@@ -6,19 +6,19 @@ class UsersController < ApplicationController
     if logged_in?
       redirect "/types"
     else
+      @user = User.new
       erb :'/users/signup'
     end
   end
 
   post '/signup' do
-    if params[:username] == "" || params[:password] == "" || params[:email] == ""
-      flash[:message] = "Please fill out all fields"
-      redirect "/signup"
-    else
-      @user = User.new(username: params[:username], email: params[:email], password: params[:password])
-      @user.save
+    @user = User.new(username: params[:username], email: params[:email], password: params[:password])
+    if @user.save
       session[:user_id] = @user.id
-      redirect "/types"
+      redirect to '/types'
+    else
+      flash[:message] = @user.errors.full_messages.join(', ')
+      erb :'/users/signup'
     end
   end
 

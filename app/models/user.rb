@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :items
 
   has_secure_password
+  validates :username, :email, presence: true, uniqueness: true
 
   def slug
     username.downcase.strip.gsub(" ", "-")

@@ -20,10 +20,8 @@ class ItemsController < ApplicationController
 
   post '/items' do
     if params[:title].strip != "" && params[:creator].strip != "" && params[:type_name] != ""
-      @user = current_user
-      @type = @user.types.find_or_create_by(name: params[:type_name])
-      @type.user_id = @user.id
-      @item = Item.create(title: params[:title], creator: params[:creator], type_id: @type.id, user_id: @user.id)
+      @type = current_user.types.find_or_create_by(name: params[:type_name])
+      @item = current_user.items.create(title: params[:title], creator: params[:creator], type_id: @type.id)
       @item.save
       flash.now[:message] = %Q[<a href="/items/#{@item.slug}">#{@item.title}</a>  by #{@item.creator} has been added to your <a href="/types/#{@type.slug}">#{@type.name}s</a> caboodall]
       erb :"/items/new"
@@ -41,7 +39,7 @@ class ItemsController < ApplicationController
   delete '/items/:slug/delete' do
     if logged_in?
       @item = current_user.items.find_by_slug(params[:slug])
-      if !!@item && @item.user_id == current_user.id
+      if @item && @item.user == current_user
         @item.delete
         flash[:message] = "Your item has been deleted successfully"
         redirect :"/types"
